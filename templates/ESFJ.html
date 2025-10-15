@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #4297b4; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 55vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 20vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container4 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 35vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #4297b4; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+<div class="hero">
+    <div class="text">
+        <h1>ผู้ให้คำปรึกษา</h1>
+        <p1>บุคคลิกภาพแบบ ESFJ<br>
+       ผู้ให้คำปรึกษาเป็นคนเอาใจใส่ ชอบเข้าสังคม คำนึงถึงชุมชน มักกระตือรือร้นที่จะเสนอความช่วยเหลือแก่ผู้อื่น</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/esfj.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>ผู้ให้คำปรึกษา</h1>
+        <hr class="divider">
+    
+        สำหรับผู้ให้คำปรึกษา (Consul) (ESFJ) ชีวิตจะหอมหวานที่สุดเมื่อได้แบ่งปันกับผู้อื่น คนที่มีบุคลิกภาพแบบนี้เป็นรากฐานสำคัญของหลายชุมชน เปิดบ้านต้อนรับผู้อื่นและเปิดหัวใจให้กับผองเพื่อน คนที่รัก และเพื่อนบ้าน</p>
+        นี่ไม่ได้หมายความว่าผู้ให้คำปรึกษาจะชอบทุกคนหรือว่าพวกเขาเป็นนักบุญ แต่ผู้ให้คำปรึกษาเชื่อในพลังของการต้อนรับและมารยาทที่ดี และพวกเขามักจะรู้สึกว่าตนมีหน้าที่รับผิดชอบต่อคนรอบข้าง บุคคลที่มีบุคลิกภาพประเภทนี้มักมีความเอื้อเฟื้อเผื่อแผ่และไว้วางใจได้ ทั้งในเรื่องใหญ่และเรื่องเล็ก เพื่อยึดเหนี่ยวครอบครัวและชุมชนไว้ด้วยกัน</p>
+    </div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>ความงามของชีวิตที่มีความรับผิดชอบ</h1>
+    
+        ผู้ให้คำปรึกษาเป็นผู้เห็นแก่ผู้อื่น พวกเขารับผิดชอบอย่างจริงจังในการตอบแทน รับใช้ผู้อื่น และทำในสิ่งที่ถูกต้อง</p>
+และผู้ให้คำปรึกษาเชื่อว่ามีสิ่งถูกต้องที่ควรทำในเกือบทุกสถานการณ์ และพวกเขาเห็นสิ่งเหล่านี้ได้อย่างชัดเจน ในขณะที่บุคลิกภาพบางประเภทใช้ทัศนคติแบบผ่อนปรนและทัศนคติแบบที่ทุกคนควรได้ใช้ชีวิตแบบที่ตนต้องการ ผู้ให้คำปรึกษาอาจพบว่าเป็นการยากที่จะไม่ตัดสินเมื่อมีคนใช้ใช้ชีวิตไปในทางที่ผู้ให้คำปรึกษามองว่าผิด ผลที่ตามมาคือ ผู้ให้คำปรึกษามักจะยอมรับได้ยากเมื่อมีคนไม่เห็นด้วยกับพวกเขา โดยเฉพาะคนที่พวกเขาห่วงใย</p>
+ด้วยมุมมองที่ชัดเจนสำหรับสิ่งที่ถูกและผิด ผู้ให้คำปรึกษามักจะอยู่ฝ่ายที่มีความเห็นที่ยึดแน่น แต่ความคิดเห็นเหล่านี้ไม่ได้เกิดขึ้นโดยพลการ ความเห็นเหล่านี้มักมีพื้นฐานมาจากความเคารพอย่างลึกซึ้งต่อประเพณี ผู้ให้คำปรึกษาทราบดีว่าทุกสิ่งที่พวกเขาทำส่งผลกระทบต่อผู้อื่น และพวกเขาเชื่อมั่นว่ากฎหมาย ระเบียบปฏิบัติ และบรรทัดฐานทางสังคมที่กำหนดไว้จะช่วยให้พวกเขาดำเนินชีวิตประจำวันในแบบที่มีน้ำใจและรับผิดชอบต่อผู้อื่นได้</p>
+</div>
+</div>
+
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ESTJ</h1>
+    
+        ครู / พยาบาล : ESFJ สนใจคนรอบตัวและใส่ใจความต้องการของผู้อื่น งานที่ต้องดูแลและช่วยเหลือคนอื่นเหมาะที่สุด</p>
+นักประชาสัมพันธ์ / ผู้จัดกิจกรรม : พวกเขาสามารถสร้างความสัมพันธ์ที่ดีและทำงานร่วมกับคนอื่นได้อย่างราบรื่น งานที่ต้องประสานงานและเชื่อมต่อคนเหมาะมาก</p>
+เจ้าหน้าที่บริการลูกค้า / โค้ชชีวิต : ESFJ ชอบช่วยเหลือผู้อื่นให้ประสบความสำเร็จ งานที่ให้พวกเขาใช้ความเอาใจใส่และการสื่อสารเหมาะที่สุด</p>
+</div>
+</div>
+
+
+</body>
+</html>

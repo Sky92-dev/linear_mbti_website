@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #33a574; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 50vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 60vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #33a574; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+<div class="hero">
+    <div class="text">
+        <h1>นักรณรงค์</h1>
+        <p1>บุคคลิกภาพแบบ ENFP<br>
+       นักรณรงค์มีความกระตือรือร้น มีความคิดสร้างสรรค์ และมีมนุษย์สัมพันธ์ที่ดี เป็นคนที่สามารถหาเหตุผลให้ยิ้มได้เสมอ</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/enfp.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>นักรณรงค์</h1>
+        <hr class="divider">
+    
+        นักรณรงค์ (Campaigner) (ENFP) เป็นจิตวิญญาณแห่งอิสระอย่างแท้จริง พวกเขาเป็นคนเข้าสังคม ใจกว้าง และเปิดใจ ด้วยแนวทางการใช้ชีวิตที่มีชีวิตชีวาและสนุกสนาน พวกเขาจึงโดดเด่น ไม่ว่าจะอยู่ในกลุ่มไหนก็ตาม แม้ว่าพวกเขาจะชอบการปาร์ตี้ แต่นักรณรงค์ไม่เพียงแค่สนใจที่จะมีช่วงเวลาดี ๆ เท่านั้น ประเภทบุคลิกภาพเหล่านี้ลึกล้ำ พวกเขาปรารถนาที่จะมีความสัมพันธ์ทางอารมณ์ที่มีความหมายกับผู้อื่นด้วย</p>
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>ความมหัศจรรย์ของชีวิตในทุก ๆ วัน</h1>
+    
+        นักรณรงค์เป็นมิตร ชอบเข้าสังคม และมุ่งมั่นที่จะยกระดับความสัมพันธ์และชีวิตทางสังคมของพวกเขา แต่ภายใต้รูปลักษณ์ภายนอกที่ดูเข้ากับคนง่ายนั้น พวกเขาก็มีชีวิตภายในที่เต็มไปด้วยความมีชีวิตชีวาเช่นกัน หากปราศจากจินตนาการ ความคิดสร้างสรรค์ และความอยากรู้อยากเห็นแล้ว นักรณรงค์ก็คงจะเรียกไม่ได้ว่าเป็นนักรณรงค์</p>
+ด้วยวิธีการที่ไม่เหมือนใคร นักรณรงค์อาจเป็นผู้ที่มักครุ่นคิดได้ พวกเขาอดไม่ได้ที่จะไตร่ตรองถึงความหมายและความสำคัญของชีวิตที่ลึกซึ้งยิ่งขึ้น แม้ว่าพวกเขาควรจะให้ความสนใจกับสิ่งอื่นก็ตาม บุคคลิกเหล่านี้เชื่อว่าทุกสิ่งและทุกคนเชื่อมโยงถึงกัน และพวกเขาใช้ชีวิตเพื่อทำความเข้าใจว่าตนสามารถเข้าถึงการเชื่อมโยงเหล่านี้ได้ด้วยความหวังที่มีอยู่</p>
+เมื่อมีบางอย่างจุดประกายจินตนาการ นักรณรงค์สามารถแสดงความกระตือรือร้นได้อย่างต่อเนื่อง บุคลิกภาพเหล่านี้แผ่พลังงานเชิงบวกที่ดึงดูดผู้อื่น และบ่อยครั้งนักรณรงค์พบว่าเพื่อนร่วมงานยกย่องตนในฐานะผู้นำหรือกูรู แต่เมื่อแรงบันดาลใจเริ่มหมดลง นักรณรงค์อาจพบความลำบากในการควบคุมวินัยในตนเองและความสม่ำเสมอในการทำสิ่งต่าง ๆ หรือกระทั่งสูญเสียพลังใจที่จะขับเคลื่อนโครงการที่เคยมีความหมายมากสำหรับพวกเขา</p>
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>แสวงหาความสุข</h1>
+    
+        นักรณรงค์คือข้อพิสูจน์ว่า การแสวงหาความสุขและความพึงพอใจในชีวิตนั้น ไม่ได้มาง่าย ๆ เพียงทำสิ่งต่าง ๆ ในระดับผิวเผิน นอกจากนี้ ในชั่วพริบตาเราอาจพบได้ว่า คนที่มีบุคลิกภาพประเภทนี้สามารถเปลี่ยนจากนักอุดมคติที่เร่าร้อนกลายเป็นบุคคลที่ไร้กังวลบนฟลอร์เต้นรำได้</p>
+แม้ในช่วงเวลาแห่งความสนุกสนาน นักรณรงค์ยังต้องการเชื่อมโยงทางอารมณ์กับผู้อื่น ไม่กี่สิ่งที่สำคัญต่อบุคลิกภาพประเภทนี้มากไปกว่าการสนทนาอย่างจริงใจและเปิดอกกับคนที่พวกเขารัก นักรณรงค์เชื่อว่าทุกคนควรที่จะได้รับโอกาสในการแสดงความรู้สึกของตนออกมา นอกจากนี้ ความเข้าอกเข้าใจและความอบอุ่นของพวกเขา ยังสร้างพื้นที่สำหรับการแสดงรู้สึกของตนออกมาได้อย่างสบายใจ พื้นที่ที่แม้แต่คนที่กลัวที่สุดยังกล้าจะเปิดใจกับพวกเขา</p>
+คนที่มีบุคลิกภาพแบบนี้ต้องระวัง สัญชาตญาณของผู้รณรงค์อาจทำให้พวกเขาอ่านการกระทำและพฤติกรรมของผู้อื่นมากเกินไป แทนที่จะขอคำอธิบายเพียงอย่างเดียว ผู้รณรงค์อาจลงเอยด้วยความสับสนเกี่ยวกับความปรารถนาหรือความตั้งใจของคนอื่น ความเครียดทางสังคมประเภทนี้เป็นสิ่งที่ทำให้นักรณรงค์ที่เน้นความสามัคคีตื่นขึ้นในตอนกลางคืน</p>
+นักรณรงค์จะใช้เวลามากมายในการสำรวจความสัมพันธ์ ความรู้สึก และแนวคิดต่าง ๆ ก่อนที่พวกเขาจะพบเส้นทางชีวิตที่ตนรู้สึกว่าถูกต้อง แต่เมื่อพวกเขาค้นพบหนทางของตัวเองแล้ว จินตนาการ ความเข้าอกเข้าใจ และความกล้าหาญของพวกเขาไม่เพียงทำให้ชีวิตของพวกเขาเองสว่างไสวเท่านั้น แต่ยังทำให้โลกรอบตัวพวกเขาสว่างไสวขึ้นไปด้วย</p>
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ENFP</h1>
+    
+        นักประชาสัมพันธ์ / นักการตลาด : ENFP มีความคิดสร้างสรรค์และพลังในการสื่อสาร ทำให้พวกเขาเหมาะกับงานที่ต้องโน้มน้าวและสร้างแรงบันดาลใจให้ผู้อื่น</p>
+นักแสดง / นักบันเทิง : พวกเขาชอบเชื่อมต่อกับผู้คนและแสดงอารมณ์ งานบันเทิงช่วยให้พวกเขาใช้ความคิดสร้างสรรค์และพลังงานในการดึงดูดผู้ชม</p>
+ผู้ประกอบการ / นักนวัตกรรม : ENFP ชอบทดลองสิ่งใหม่ ๆ และคิดไอเดียใหม่ ๆ งานที่ให้พวกเขาคิดและริเริ่มโครงการเหมาะกับพวกเขาอย่างมาก</p>
+</div>
+</div>
+
+
+</body>
+</html>

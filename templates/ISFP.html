@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #e3ae3a; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 50vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 60vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 23px;
+    box-sizing: border-box;
+    
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #e3ae3a; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+
+<div class="hero">
+    <div class="text">
+        <h1>นักผจญภัย</h1>
+        <p1>บุคคลิกภาพแบบ ISFP<br>
+        นักผจญภัยมีความยืดหยุ่นสูงและมีเสน่ห์ มักพร้อมสำรวจและทดลองสิ่งใหม่ ๆ อยู่เสมอ</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/isfp.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>นักผจญภัย</h1>
+        <hr class="divider">
+    
+        นักผจญภัย (Adventurer) (ISFP) เป็นศิลปินอย่างแท้จริงแม้ว่าจะไม่ได้เป็นไปตามความหมายอย่างที่เราเข้าใจกันทั่วไปก็ตาม สำหรับบุคลิกภาพประเภทนี้ ชีวิตคือผืนผ้าใบเพื่อให้ได้แสดงออก ตั้งแต่เสื้อผ้าหน้าผมที่พวกเขาสวมใส่ไปจนถึงการใช้เวลาว่าง นักผจญภัยแสดงออกในรูปแบบที่สะท้อนให้เห็นอย่างชัดเจนว่าพวกเขาเป็นใครในฐานะบุคคลที่มีเอกลักษณ์เฉพาะตัว</p>
+นักผจญภัยทุกคนมีเอกลักษณ์เฉพาะตัวอย่างแน่นอน พวกเขาอยากรู้อยากเห็นและกระตือรือร้นที่จะลองสิ่งใหม่ ๆ คนที่มีบุคลิกประเภทนี้มักมีความรักความหลงใหลและความสนใจที่น่าตื่นเต้นมากมาย ด้วยจิตวิญญาณแห่งการสำรวจและความสามารถในการค้นหาความสุขในชีวิตประจำวัน นักผจญภัยอาจเป็นหนึ่งในคนที่น่าสนใจที่สุดที่คุณเคยพบก็เป็นได้ สิ่งที่ย้อนแย้งเพียงสิ่งเดียวคือ นักผจญภัยมักถ่อมตัวและอ่อนน้อมถ่อมตนและมองตัวเองว่า “แค่ทำสิ่งที่ตัวเองชอบ” ดังนั้นพวกเขาอาจไม่รู้ด้วยซ้ำว่าตัวเองโดดเด่นแค่ไหน</p>
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>ความงามของจิตใจที่เปิดกว้าง</h1>
+    
+        นักผจญภัยใช้แนวทางการใช้ชีวิตที่ยืดหยุ่นและปรับเปลี่ยนได้ตามจังหวะชีวิต บุคลิกภาพบางประเภทจะประสบความสำเร็จด้วยการทำตามตารางเวลาและกิจวัตรที่เคร่งครัด แต่ไม่ใช่สำหรับนักผจญภัย นักผจญภัยใช้เวลาแต่ละวันทำในสิ่งที่รู้สึกว่า "ใช่" สำหรับพวกเขาในขณะนั้น ๆ และพวกเขาจะคอยเผื่อใจไว้สำหรับสิ่งที่ไม่คาดฝันในชีวิตที่อาจเกิดขึ้นได้ ด้วยเหตุนี้ ผลที่ตามมาคือ ห้วงเวลาดี ๆ อันน่าจดจำที่สุดของพวกเขาส่วนใหญ่เป็นเรื่องที่เกิดขึ้นเองโดยไม่คาดฝัน เช่น การออกไปเที่ยวและการผจญภัยที่เกิดขึ้นแบบทันทีทันใด ไม่ว่าจะไปคนเดียวหรือกับคนรักก็ตาม</p>
+ความคิดที่ยืดหยุ่นนี้ทำให้นักผจญภัยมีความอดทนและใจกว้างอย่างน่าทึ่ง บุคลิกแบบนี้ชอบที่จะอยู่ในโลกที่เต็มไปด้วยผู้คนทุกประเภท แม้กระทั่งคนที่ไม่เห็นด้วยกับพวกเขาหรือเลือกวิถีชีวิตที่แตกต่างไปอย่างสิ้นเชิง จึงไม่แปลกเลยที่นักผจญภัยจะเปิดใจรับฟังและพร้อมที่จะเปลี่ยนความคิดรวมถึงทบทวนความคิดเห็นของตนเอง หากจะมีบุคคลประเภทใดที่เชื่อในการให้โอกาสสิ่งหนึ่งสิ่งใดหรือคนหนึ่งคนใดเป็นครั้งที่สอง คนคนนั้นก็คือนักผจญภัยนั่นเอง</p>
+นั่นหมายความว่า ความคิดแบบ "ชีวิตผ่อนคลายและปล่อยให้เป็นไปตามสถานการณ์" ของนักผจญภัยอาจมีข้อเสียอยู่บ้าง คนที่มีบุคลิกภาพแบบนี้อาจประสบปัญหาในการวางแผนระยะยาวหรือไม่ยอมวางแผนระยะยาวเลย ด้วยเหตุนี้ นักผจญภัยจึงมักมีภาพที่ค่อนข้างคลุมเครือเกี่ยวกับความสามารถในการบรรลุเป้าหมาย และมักกังวลว่าจะทำให้คนอื่นผิดหวัง ดังนั้น หากนักผจญภัยหันมาทำให้สิ่งต่าง ๆ ในชีวิตให้เป็นระเบียบหรือมีโครงสร้างขึ้นอีกเล็กน้อย ก็จะช่วยให้พวกเขารู้สึกว่ามีความสามารถและมีระเบียบมากขึ้นโดยไม่ทำลายจิตวิญญาณที่รักในอิสรภาพของตนไป</p>
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ISFP</h1>
+    
+        ศิลปิน / นักออกแบบ / นักดนตรี : ISFP ใส่ใจความงามและความรู้สึกของตัวเอง งานศิลปะช่วยให้พวกเขาแสดงออกและสร้างแรงบันดาลใจ</p>
+ช่างภาพ / นักออกแบบแฟชั่น : พวกเขาสามารถสื่อสารอารมณ์ผ่านงานสร้างสรรค์ งานที่ใช้ความคิดสร้างสรรค์เหมาะที่สุด</p>
+นักกิจกรรมสร้างแรงบันดาลใจ : ISFP ชอบทำงานที่ให้ความหมายต่อผู้อื่น งานที่ช่วยสร้างแรงบันดาลใจเหมาะมาก</p>
+</div>
+</div>
+
+
+</body>
+</html>

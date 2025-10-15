@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #33a574; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 60vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #33a574; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+<div class="hero">
+    <div class="text">
+        <h1>ผู้ไกล่เกลี่ย</h1>
+        <p1>บุคคลิกภาพแบบ INFP<br>
+        ผู้ไกล่เกลี่ยเป็นนักกวี ใจดี และเห็นใจผู้อื่น 
+        มีความกระตือรือร้นที่จะช่วยเหลือเพื่อสร้างสิ่งดีให้กับสังคม</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/animations/type-descriptions/introductions/mediator.svg" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>ผู้สนับสนุน</h1>
+        <hr class="divider">
+    
+        แม้ว่าพวกเขาจะดูเงียบขรึมหรือไม่ประจบประแจง ผู้ไกล่เกลี่ย (Mediator) (INFP) มีชีวิตภายในที่สดใส มีความรักความหลงใหล ความคิดสร้างสรรค์ และจินตนาการ พวกเขามีความสุขไปกับฝันกลางวัน ประดิษฐ์เรื่องราวและบทสนทนาทุกประเภท ในใจ บุคลิกภาพเหล่านี้มักมีความอ่อนไหว ผู้ไกล่เกลี่ยสามารถมีการตอบสนองทางอารมณ์อย่างลึกซึ้งต่อดนตรี ศิลปะ ธรรมชาติ และผู้คนรอบข้างได้</p>
+ผู้ไกล่เกลี่ยมีอุดมการณ์และเข้าอกเข้าใจ ปรารถนาความสัมพันธ์ที่ลึกซึ้งและเต็มไปด้วยจิตวิญญาณ และพวกเขารู้สึกว่ามีหน้าที่ต้องช่วยเหลือผู้อื่น แต่เนื่องจากมีประชากรจำนวนน้อยที่มีบุคลิกภาพประเภทนี้ บางครั้งผู้ไกล่เกลี่ยจึงอาจรู้สึกโดดเดี่ยวหรือไม่มีใครมองเห็นหรือเข้าอกเข้าใจ พวกเขารู้สึกเคว้งคว้างอยู่ในโลกที่ดูเหมือนจะไม่ได้ยกย่องชื่นชมเอกลักษณ์เฉพาะตัวของพวกเขามากนัก</p>
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>พรสวรรค์จากความเข้าเอกเข้าใจ</h1>
+    
+        ผู้ไกล่เกลี่ยสงสัยใคร่รู้อย่างมากเกี่ยวกับส่วนลึกของธรรมชาติแห่งมนุษย์ พวกเขาปรับตัวเข้ากับความคิดลึกซึ้งอยู่ภายในและความรู้สึกของตัวเองได้อย่างยอดเยี่ยม แต่ก็ปรารถนาที่จะเข้าใจผู้คนรอบตัวด้วยเช่นกัน ผู้ไกล่เกลี่ยมีความเข้าอกเข้าใจและไม่ตัดสิน เต็มใจรับฟังเรื่องราวของบุคคลอื่นเสมอ เมื่อมีคนเปิดใจหรือหันไปหาพวกเขาเพื่อพึ่งพาการปลอบโยน พวกเขารู้สึกเป็นเกียรติที่ได้รับฟังและช่วยเหลือผู้อื่น</p>
+สำหรับผู้ไกล่เกลี่ย ความสัมพันธ์ในอุดมคติไม่ว่าประเภทใดก็ตาม คือความสัมพันธ์ที่ทั้งสองคนรู้สึกสบายใจที่จะแบ่งปันร่วมกัน ไม่ใช่แค่ความหวังและความฝันอันสุดเหวี่ยงของพวกเขาเท่านั้น แต่ยังรวมถึงความกลัวและความเปราะบางในจิตใจที่เป็นความลับของพวกเขาด้วย</p>
+ความเข้าอกเข้าใจเป็นหนึ่งในของขวัญที่ยิ่งใหญ่ที่สุดของบุคลิกภาพประเภทนี้ แต่บางครั้งก็อาจกลายเป็นภาระได้ เนื่องจากผู้ไกล่เกลี่ยมักแบกปัญหาของโลกไว้บนบ่า บุคลิกภาพเหล่านี้อาจเสี่ยงต่อการทำให้อารมณ์หรือความคิดด้านลบของผู้อื่นกลับมาฝังลึกอยู่ภายในใจของตัวเองแทน เว้นแต่จะเรียนรู้ที่จะกำหนดขอบเขตให้ชัดเจน ผู้ไกล่เกลี่ยอาจรู้สึกได้ว่ามีสิ่งผิดมากมายอยู่บนโลกใบนี้ที่ต้องแก้ไขให้ถูกต้อง</p>
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ INFP</h1>
+    
+        นักเขียน / ศิลปิน : INFP เป็นนักฝันและมีจินตนาการสูง งานศิลปะและงานเขียนช่วยให้พวกเขาสื่อสารความคิดและอารมณ์ลึก ๆ ของตนเอง และสร้างแรงบันดาลใจให้ผู้อื่น</p>
+นักจิตวิทยา / ที่ปรึกษา : ด้วยความใส่ใจความรู้สึกผู้อื่น INFP สามารถช่วยเหลือและให้คำปรึกษา ทำให้คนรอบตัวรู้สึกเข้าใจและได้รับการสนับสนุน</p>
+นักกิจกรรมสังคม / นักเคลื่อนไหว : พวกเขามักมีอุดมการณ์สูงและต้องการสร้างความดีให้โลก งานที่เกี่ยวกับชุมชนหรือกิจกรรมเพื่อสังคมทำให้พลังของพวกเขาเกิดประโยชน์สูงสุด</p>
+</div>
+</div>
+
+
+</body>
+</html>

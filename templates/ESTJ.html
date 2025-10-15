@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #4297b4; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 70vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 20vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container4 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 35vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #4297b4; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+
+<div class="hero">
+    <div class="text">
+        <h1>ผู้บริหาร</h1>
+        <p1>บุคคลิกภาพแบบ ESTJ<br>
+       ผู้บริหารเป็นนักบริหารที่ดี มีความโดดเด่นเรื่องการจัดการเรื่องต่าง ๆ หรือบุคลากร</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/estj.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>ผู้บริหาร</h1>
+        <hr class="divider">
+    
+        ผู้บริหาร (Executive) (ESTJ) เป็นตัวแทนของจารีตประเพณี ธรรมเนียมปฏิบัติ และระเบียบ โดยใช้ความเข้าใจของพวกเขาในสิ่งที่ถูก ผิด และเป็นที่ยอมรับของสังคมในการทำให้ครอบครัวและชุมชนอยู่ร่วมกัน บุคคลที่มีบุคลิกภาพแบบผู้บริหารนั้นยอมรับคุณค่าของความซื่อสัตย์ การอุทิศตน และศักดิ์ศรี พวกเขาขึ้นชื่อในเรื่องการให้คำแนะนำที่ชัดเจน และพวกเขาจะนำผู้อื่นอย่างมีความสุขแม้เส้นทางนั้นจะยากลำบากก็ตาม ด้วยความภูมิใจในการนำผู้คนมารวมกัน ผู้บริหารมักสวมบทบาทเป็นผู้จัดงานชุมชน ทำงานอย่างหนักเพื่อให้ทุกคนมารวมตัวกันในการเฉลิมฉลองกิจกรรมท้องถิ่นอันเป็นที่รัก หรือปกป้องค่านิยมดั้งเดิมที่ยึดครอบครัวและชุมชนไว้ด้วยกัน</p>
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>นำโดยการทำเป็นตัวอย่าง</h1>
+    
+        ความเป็นผู้นำดังกล่าวมีความต้องการสูงในสังคมประชาธิปไตย และบุคลิกแบบนี้มีจำนวนไม่น้อยกว่า 11% ของประชากร จึงไม่น่าแปลกใจที่ประธานาธิบดีหลายคนเคยเป็นผู้บริหาร พวกเขาเชื่อมั่นในหลักนิติธรรมและอำนาจที่ต้องได้มาโดยความพยายามของตน บุคลิกแบบผู้บริหารนี้จะนำโดยการทำเป็นแบบอย่าง แสดงให้เห็นถึงความทุ่มเทและความซื่อสัตย์อย่างมีจุดมุ่งหมาย พวกเขาปฏิเสธความเกียจคร้านและการโกง โดยเฉพาะอย่างยิ่งในการทำงาน ผู้บริหารจะทำงานอย่างหนัก ใช้การทำงานให้เป็นเลิศเพื่อสร้างบุคลิกของตน</p>
+ผู้บริหารตระหนักถึงสิ่งรอบข้างและอยู่ในโลกของข้อเท็จจริงที่ชัดเจนและตรวจสอบได้ ความรู้ที่แน่นอนของพวกเขาหมายความว่าแม้จะถูกต่อต้านอย่างหนัก พวกเขาก็ยึดมั่นในหลักการและผลักดันวิสัยทัศน์ที่ชัดเจนว่าอะไรคือสิ่งที่ยอมรับได้และอะไรคือสิ่งที่ยอมรับไม่ได้ ความคิดเห็นของพวกเขาไม่ใช่แค่พูดเปล่า ๆ เพราะผู้บริหารยินดีที่จะลงลึกไปในรายละเอียดของโครงการที่ท้าทายที่สุดเพื่อปรับปรุงแผนปฏิบัติการและจัดเรียงรายละเอียดไปพร้อมกัน ทำให้แม้แต่งานที่ซับซ้อนที่สุดก็ดูง่ายและเข้าถึงได้</p>
+อย่างไรก็ตาม ผู้บริหารไม่ได้ทำงานคนเดียว และพวกเขาคาดหวังว่าความน่าเชื่อถือและจรรยาบรรณในการทำงานของพวกเขาจะต้องได้รับสิ่งดี ๆ ตอบแทนกลับมา คนที่มีบุคลิกภาพประเภทนี้จะทำตามคำมั่นสัญญาของตน และหากหุ้นส่วนหรือผู้ใต้บังคับบัญชาบ่อนทำลายหรือเหนี่ยวรั้งพวกเขาด้วยการไร้ความสามารถหรือความเกียจคร้าน หรือแย่กว่านั้นคือ ไม่ซื่อสัตย์ พวกเขาไม่ลังเลที่จะแสดงความโกรธของตนออกมา นั่นทำให้พวกเขามีชื่อเสียงในด้านความไม่ยืดหยุ่น ซึ่งเป็นคุณลักษณะที่มีร่วมกันในบุคลิกแบบองครักษ์ (Sentinel) ทั้งหมด อย่างไรก็ตาม นั่นไม่ใช่เพราะผู้บริหารมีความดื้อรั้นโดยพลการ แต่เป็นเพราะพวกเขาเชื่ออย่างแท้จริงว่าค่านิยมเหล่านี้เป็นสิ่งที่ทำให้สังคมน่าอยู่</p>
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>ความรับผิดชอบที่ยิ่งใหญ่ขึ้น</h1>
+    
+        ความท้าทายหลักสำหรับผู้บริหารคือ การตระหนักว่าไม่ใช่ทุกคนที่เดินตามเส้นทางเดียวกันหรือมีส่วนร่วมในแนวทางเดียวกันกับ ผู้นำที่แท้จริงจะรับรู้ถึงจุดแข็งของแต่ละบุคคล รวมถึงจุดแข็งของกลุ่ม และช่วยนำแนวคิดของแต่ละบุคคลเหล่านั้นมาสู่องค์กรเพื่อสร้างประโยชน์ร่วมกัน ด้วยวิธีนี้ผู้บริหารจะมีข้อเท็จจริงทั้งหมดและสามารถเป็นผู้นำในทิศทางที่เหมาะกับทุกคนได้</p>
+
+</div>
+</div>
+<div class="container4">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ESTJ</h1>
+    
+        ผู้จัดการ / เจ้าของธุรกิจ : ESTJ เป็นผู้นำและสามารถจัดการทีมได้อย่างมีประสิทธิภาพ งานที่ต้องบริหารจัดการและตัดสินใจเหมาะที่สุด</p>
+เจ้าหน้าที่ประสานงาน / ผู้นำโครงการ : พวกเขามีทักษะการวางแผนและจัดระเบียบ งานที่ต้องการความชัดเจนและผลลัพธ์ตรงตามเป้าหมายเหมาะมาก</p>
+นักธุรกิจ / ผู้บริหารองค์กร : ESTJ มุ่งมั่นในการสร้างผลลัพธ์ งานที่ต้องบริหารจัดการและรับผิดชอบผลสำเร็จเหมาะกับพวกเขามาก</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

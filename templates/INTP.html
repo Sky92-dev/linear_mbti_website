@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #88619a; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 55vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 25vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #88619a; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+
+
+<div class="hero">
+    <div class="text">
+        <h1>นักตรรกะ</h1>
+        <p1>บุคคลิกภาพแบบ INTP<br>
+        นักตรรกะเป็นนักคิดค้นนวัตกรรมที่กระหายความรู้อย่างไม่มีที่สิ้นสุด</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/intp.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>นักตรรกะ</h1>
+        <hr class="divider">
+    
+        นักตรรกะ (Logician) (INTP) ภูมิใจในมุมมองที่เป็นเอกลักษณ์และสติปัญญาที่แข็งแกร่งของตน พวกเขาอดไม่ได้ที่จะไขปริศนาความลึกลับของจักรวาล ซึ่งอาจอธิบายได้ว่าทำไมนักปรัชญาและนักวิทยาศาสตร์ที่มีอิทธิพลมากที่สุดตลอดกาลบางคนจึงเป็นนักตรรกะ ด้วยความคิดสร้างสรรค์และความเป็นนักประดิษฐ์ทำให้บุคลิกภาพประเภทนี้ค่อนข้างหายาก และนักตรรกะไม่กลัวที่จะโดดเด่นในฝูงชน</p>
+
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>จิตคือชีวิต</h1>
+    
+       นักตรรกศาสตร์มักจะหลงอยู่ในความคิดของตัวเอง ซึ่งก็ไม่ใช่เรื่องเลวร้ายอะไร คนที่มีบุคลิกภาพแบบนี้แทบจะไม่เคยหยุดคิด ตั้งแต่วินาทีที่พวกเขาตื่นขึ้น ความคิดของพวกเขาก็พรั่งพรูไปด้วยความคิด คำถาม และข้อมูลเชิงลึก บางครั้งพวกเขาอาจพบว่าตัวเองโต้เถียงกันอย่างเต็มที่อยู่ในหัวของพวกเขาเอง</p>
+จากภายนอก นักตรรกะอาจดูเหมือนฝันกลางวันที่ไม่มีวันสิ้นสุด พวกเขามีชื่อเสียงในด้านความครุ่นคิด ปลีกตัว และเก็บตัวเล็กน้อย และพวกเขาจะไม่เลิกเป็นแบบนี้จนกว่าพวกเขาจะพยายามฝึกพลังจิตของตัวเองให้อยู่กับปัจจุบันหรือเป็นบุคคลที่คนอื่นเข้าถึงได้ง่าย ซึ่งอาจทำให้ทุกคนอึดอัดเล็กน้อย แต่ไม่ว่าพวกเขาจะอยู่ในโหมดใด นักตรรกะก็เป็นพวกชอบเก็บตัวและมักจะเหนื่อยกับการเข้าสังคมที่มากเกินความจำเป็นในความคิดของพวกเขา หลังจากวันอันยาวนาน พวกเขาต้องการเวลาอยู่คนเดียวเพื่ออยู่กับความคิดของตนเอง</p>
+แต่การคิดว่านักตรรกะนั้นไม่เป็นมิตรหรือเคร่งขรึมคงจะเป็นเรื่องที่คิดผิด เมื่อพวกเขาสานสัมพันธ์กับคนที่มีพลังความคิดในระดับเดียวกับพวกเขาได้ บุคลิกเหล่านี้จะเบิกบานขึ้นอย่างแน่นอน และจะกระโดดความคิดหนึ่งไปสู่อีกความคิดหนึ่ง สิ่งที่เติมพลังให้พวกเขาได้ดีคือโอกาสในการแลกเปลี่ยนความคิดเห็นหรือเพลิดเพลินกับการโต้วาทีอย่างสนุกสนานกับอีกคนที่อยากรู้อยากเห็นเหมือนพวกเขา</p>
+
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ INTP</h1>
+    
+        นักวิชาการ / นักวิจัย : INTP ชอบสำรวจแนวคิดใหม่ ๆ และวิเคราะห์สิ่งต่าง ๆ พวกเขาสามารถคิดเชิงลึกและสร้างนวัตกรรมใหม่</p>
+นักพัฒนาซอฟต์แวร์ / นักคณิตศาสตร์ : งานที่ต้องแก้โจทย์ซับซ้อนและการคิดเชิงตรรกะเหมาะกับพวกเขามาก</p>
+นักคิดแนวปรัชญา / นักเขียน : INTP มักสนใจแนวคิดลึกซึ้ง งานที่ให้พวกเขาได้แสดงความคิดเห็นหรือถ่ายทอดความคิดเหมาะที่สุด</p>
+</div>
+</div>
+
+
+</body>
+</html>

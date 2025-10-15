@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #88619a; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 75vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 40vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #88619a; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+<div class="hero">
+    <div class="text">
+        <h1>ผู้มีเหตุผล</h1>
+        <p1>บุคคลิกภาพแบบ INTJ<br>
+        ผู้มีเหตผลเป็นนักคิดที่มีจินตนาการและมีกลยุทธ์ พร้อมแผนการสำหรับทุกอย่าง</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/intj.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>ผู้มีเหตุผล</h1>
+        <hr class="divider">
+    
+        ยิ่งสูงยิ่งเหงา คำ ๆ นี้อาจใช้ได้กับบุคลิกนี้ ในฐานะหนึ่งในประเภทบุคลิกภาพที่หายากที่สุด และเป็นหนึ่งในประเภทที่มีความสามารถมากที่สุด - ผู้มีเหตุผล (Architect) (INTJ) รู้เรื่องนี้เป็นอย่างดี ผู้มีเหตุผลมีเหตุผลและมีไหวพริบ ภูมิใจในความสามารถการคิดด้วยตนเอง รวมถึงมีความสามารถพิเศษที่น่าทึ่งในการมองสิ่งต่าง ๆ ได้อย่างทะลุปรุโปร่งสำหรับการหลอกลวงและความเสแสร้งใด ๆ แต่เนื่องจากจิตใจของพวกเขาไม่เคยหยุดนิ่ง ผู้มีเหตุผลจึงอาจประสบปัญหาในการหาคนที่สามารถวิเคราะห์ทุกสิ่งที่อยู่รอบตัวไปพร้อมกับพวกเขาอย่างไม่หยุดยั้งได้</p>
+
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>วิญญาณแห่งการบุกเบิก</h1>
+    
+       ผู้มีเหตุผลตั้งคำถามกับทุกอย่าง แม้เราพบว่าบุคลิกภาพหลายประเภทจะเชื่อมั่นและรู้สึกพอใจกับสถานะปัจจุบันที่เป็นอยู่ อาศัยภูมิปัญญาดั้งเดิมและความเชี่ยวชาญของผู้อื่นเพื่อชี้นำชีวิตของพวกเขา แต่สำหรับผู้มีเหตุผลแล้ว พวกเขาจะสงสัยอยู่เสมอและชอบค้นหาคำตอบด้วยตนเอง พวกเขาจะออกไปแสวงหาวิธีการเพื่อทำให้สิ่งต่าง ๆ ดีขึ้น พวกเขาไม่กลัวที่จะแหกกฎหรือเสี่ยงที่คนอื่นจะไม่เห็นด้วย ในทางกลับกัน พวกเขาค่อนข้างสนุกกับมันด้วยซ้ำ</p>
+แต่เหมือนกับคนอื่น ๆ ที่มีบุคลิกลักษณะนี้ พวกเขาจะบอกคุณว่าความคิดใหม่ ๆ จะไม่มีค่าอะไรหากไม่สามารถเอามาลงมือทำได้จริง ผู้มีเหตุผลต้องการประสบความสำเร็จ ไม่ใช่แค่ในด้านความคิดสร้างสรรค์ พวกเขานำจิตใจที่มุ่งมั่นมาสู่งานของตนไปพร้อมกับการใช้ความรู้ความเข้าใจ ตรรกะ และการโฟกัสอย่างเต็มที่ และใครก็ตามที่พยายามเข้ามาขวางทางพวกเขาหรือเป็นตัวถ่วงด้วยการบังคับใช้กฎที่ไร้สาระหรือวิพากษ์วิจารณ์พวกเขาโดยขาดการไตร่ตรอง นั่นก็จะไม่เป็นผลดีต่อคนที่เข้ามาขัดขวางพวกเขาเลย</p>
+บุคลิกภาพประเภทนี้มาพร้อมกับแนวคิดอิสระที่มั่นคงแน่วแน่ ผู้มีเหตุผลไม่กลัวที่จะทำสิ่งต่าง ๆ คนเดียว อาจเป็นเพราะพวกเขาไม่ชอบรอให้คนอื่นมาตามพวกเขาให้ทัน พวกเขามักชอบตัดสินใจโดยไม่ขอความคิดเห็นจากคนอื่น ในบางครั้ง พฤติกรรมที่ทำสิ่งต่าง ๆ ด้วยตัวคนเดียวนี้อาจดูเหมือนไร้ความรู้สึกเนื่องจากไม่คำนึงถึงความคิด ความปรารถนา และแผนการของผู้อื่น</p>
+อย่างไรก็ตาม การมองว่าผู้มีเหตุผลไม่ใส่ใจคนอื่นนั้นเป็นเรื่องที่เข้าใจผิด แม้ว่าพวกเขาจะมีสติปัญญาหรือความเฉลียวฉลาดในด้านปรัชญา บุคลิกภาพเหล่านี้รู้สึกอย่างลึกซึ้ง เมื่อพวกเขาทำสิ่งที่ผิดพลาดไปหรือได้ทำร้ายจิตใจผู้อื่น สิ่งเหล่านี้จะกระทบจิตใจของผู้มีเหตุผลเองด้วยเช่นกัน และพวกเขาจะใช้เวลาและพลังงานอย่างมากในการพยายามหาสาเหตุว่าทำไมสิ่งต่าง ๆ ถึงเกิดขึ้นในแบบนั้น พวกเขาอาจดูเหมือนไม่ได้ใช้อารมณ์เพื่อเป็นเครื่องมือในการตัดสินใจเสมอไป แต่แท้จริงแล้วพวกเขาก็คือมนุษย์คนหนึ่งที่มีอารมณ์ความรู้สึกเหมือนกับปุถุชนคนทั่วไป</p>
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ INTJ</h1>
+    
+        นักวิเคราะห์ / นักวิจัย / วิศวกร : INTJ ชอบวางแผนและแก้ปัญหาซับซ้อน พวกเขาเหมาะกับงานที่ต้องใช้การคิดเชิงกลยุทธ์และการวิเคราะห์อย่างลึกซึ้ง</p>
+ผู้บริหารกลยุทธ์ / นักธุรกิจ : ด้วยความมุ่งมั่นและการวางแผนล่วงหน้า INTJ สามารถบริหารโครงการหรือองค์กรให้บรรลุเป้าหมายอย่างมีประสิทธิภาพ</p>
+นักพัฒนาเทคโนโลยี / นักวิทยาศาสตร์ : งานวิจัยและพัฒนาที่ต้องใช้ความคิดสร้างสรรค์และการแก้ปัญหาเชิงลึกเหมาะกับพวกเขามาก</p>
+</div>
+</div>
+
+
+</body>
+</html>

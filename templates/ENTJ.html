@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #88619a; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 70vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 40vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #33a574; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+
+<div class="hero">
+    <div class="text">
+        <h1>ผู้บัญชาการ</h1>
+        <p1>บุคคลิกภาพแบบ ENTJ<br>
+        ผู้บัญชาการกล้าหาญ มีจินตนาการ และมีปณิธานกล้าแกร่ง มักหาทางออกหรือไม่ก็สร้างทางออกขึ้นมาได้</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/entj.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>ผู้บัญชาการ</h1>
+        <hr class="divider">
+    
+        ผู้บัญชาการ (Commander) (ENTJ) เป็นผู้นำโดยกำเนิด บุคคลที่มีบุคลิกภาพประเภทนี้มาพร้อมของขวัญด้านความสามารถพิเศษและความมั่นใจ และมีความสามารถในการแสดงออกถึงอำนาจในแบบที่ดึงดูดฝูงชนให้มารวมกันเพื่อทำให้บรรลุเป้าหมายเดียวกัน อย่างไรก็ตาม ผู้บัญชาการยังมีลักษณะที่มักมีเหตุผลในระดับที่ไร้ความปราณี โดยใช้แรงผลักดัน ความมุ่งมั่น และจิตใจที่เด็ดเดี่ยวของพวกเขาเพื่อบรรลุเป้าหมายที่พวกเขาตั้งไว้สำหรับตนเอง บางทีอาจเป็นการดีที่บุคลิกประเภทนี้มีสัดส่วนเพียงสามเปอร์เซ็นต์ของประชากรโลก ไม่เช่นนั้นพวกเขาอาจจะครอบงำบุคลิกภาพประเภทที่ขี้อายและอ่อนไหวกว่าซึ่งเป็นบุคลิกส่วนใหญ่ของโลกได้ แต่อย่างไรก็ตาม เราต้องขอบคุณบุคลิกประเภทผู้บัญชาการที่ทำให้มีธุรกิจและสถาบันต่าง ๆ ในโลกของเรา</p>
+
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>มุ่งมั่นสู่ความยิ่งใหญ่</h1>
+    
+       หากมีสิ่งใดที่ผู้บัญชาการชื่นชอบ มันคือความท้าทายที่ดี ไม่ว่าจะเล็กหรือใหญ่ และพวกเขาเชื่อมั่นว่าหากให้เวลาและทรัพยากรอย่างเพียงพอ พวกเขาจะสามารถบรรลุเป้าหมายใด ๆ ได้ คุณสมบัตินี้ทำให้บุคคลที่มีบุคลิกภาพแบบผู้บัญชาการเป็นผู้ประกอบการที่ยอดเยี่ยม ความสามารถในการคิดอย่างมีกลยุทธ์และมุ่งเน้นในระยะยาวในขณะที่ดำเนินการตามแผนแต่ละขั้นตอนด้วยความมุ่งมั่นและแม่นยำทำให้พวกเขาเป็นผู้นำทางธุรกิจที่ทรงพลัง และความมุ่งมั่นนี้มักนำมาซึ่งสำเร็จเสมอ ผู้บัญชาการผลักดันเป้าหมายของตนให้สำเร็จด้วยความมุ่งมั่นอย่างเต็มในที่ขณะที่คนอื่น ๆ อาจยอมแพ้และล้มเลิกไป และลักษณะนิสัยชอบเข้าสังคม (Extraverted: E) ของพวกเขา หมายความว่าพวกเขามีแนวโน้มที่จะผลักดันทุกคนไปพร้อมกับตนเองเพื่อให้บรรลุผลลัพธ์อันน่าทึ่งในขณะก้าวหน้าไปด้วยกัน</p>
+เมื่ออยู่บนโต๊ะเจรจา ไม่ว่าจะเป็นในสภาพแวดล้อมขององค์กรหรือขณะซื้อขายรถยนต์ ผู้บัญชาการจะเป็นผู้คุมเกม ไม่ยอมการต่อรองง่าย ๆ และไม่ยอมให้อภัย นี่ไม่ใช่เพราะพวกเขามีจิตใจที่เย็นชาหรือโหดร้าย แต่เป็นเพราะบุคลิกภาพของผู้บัญชาการชอบความท้าทายอย่างแท้จริง พวกเขาชอบการต่อสู้ด้วยไหวพริบ ความชำนาญในการตอบอย่างฉลาดหลักแหลมในสภาพแวดล้อมเช่นนี้ หากอีกฝ่ายตามไม่ทัน นั่นก็เป็นที่ชัดเจนว่าผู้บัญชาการจะได้ชัยชนะไปครองอย่างแน่นอน</p>
+คนที่ผู้บัญชาการให้ความเคารพจะเป็นคนที่สามารถยืนหยัดต่อสู้ไปพร้อมกับพวกเขาได้ด้วยสติปัญญา เป็นผู้ที่สามารถดำเนินการได้อย่างแม่นยำและมีคุณภาพทัดเทียมกับพวกเขา บุคลิกภาพแบบผู้บัญชาการมีทักษะพิเศษในการรู้ถึงความสามารถของผู้อื่น และสิ่งนี้ช่วยทั้งในด้านความพยายามในการสร้างทีมของพวกเขา (เนื่องจากไม่มีใครจะทำทุกอย่างได้ด้วยตัวคนเดียว ไม่ว่าจะเก่งกาจแค่ไหน) และเพื่อป้องกันไม่ให้ผู้บัญชาการแสดงความเย่อหยิ่งและถือดีมากเกินไป อย่างไรก็ตาม พวกเขายังมีทักษะพิเศษในการกล่าวถึงความล้มเหลวของผู้อื่นในระดับที่ทำให้เราขนลุกได้มากเนื่องจากการไร้ความรู้สึกของพวกเขา และนี่คือจุดที่ผู้บัญชาการเริ่มประสบปัญหาจริง ๆ</p>
+
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ENTJ</h1>
+    
+       CEO / ผู้จัดการโครงการ : ENTJ เป็นผู้นำโดยธรรมชาติ พวกเขามีความสามารถในการวางแผนและตัดสินใจเชิงกลยุทธ์ งานที่ต้องบริหารทีมและสร้างผลลัพธ์ชัดเจนเหมาะที่สุด</p>
+นักธุรกิจ / นักวางกลยุทธ์ : พวกเขามองเห็นภาพรวมและสามารถตัดสินใจเพื่อบรรลุเป้าหมายใหญ่ งานเชิงกลยุทธ์เหมาะกับ ENTJ</p>
+ที่ปรึกษาองค์กร / นักวิเคราะห์ระบบ : ด้วยความคิดเชิงวิเคราะห์และมุ่งเน้นเป้าหมาย งานที่ช่วยองค์กรปรับปรุงระบบหรือวางแผนระยะยาวเหมาะมาก</p>
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #33a574; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 70vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 35vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #33a574; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+
+<div class="hero">
+    <div class="text">
+        <h1>ผู้เป็นตัวเอก</h1>
+        <p1>บุคคลิกภาพแบบ ENFJ<br>
+        ผู้เป็นตัวเอกเป็นคนมองโลกแง่ดีที่สร้างแรงบันดาลใจ พร้อมลงมือทำสิ่งที่ตนเองรู้สึกว่าถูกต้อง</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/enfj.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>ผู้เป็นตัวเอก</h1>
+        <hr class="divider">
+    
+        ผู้เป็นตัวเอก (Protagonist) (ENFJ) รู้สึกว่าตัวเองเกิดมาเพื่อทำตามจุดประสงค์ที่ยิ่งใหญ่กว่าในชีวิต บุคลิกภาพเหล่านี้มีความรอบคอบและยึดมั่นในอุดมการณ์ มุ่งมั่นที่จะสร้างให้เกิดสิ่งดี ๆ ต่อผู้อื่นและโลกรอบตัวพวกเขา พวกเขาไม่ค่อยอายที่จะทำในสิ่งที่ถูกต้อง แม้ว่าการทำเช่นนั้นจะไม่ใช่เรื่องง่ายก็ตาม</p>
+ผู้เป็นตัวเอกเกิดมาเพื่อเป็นผู้นำ ซึ่งนั่นอธิบายได้ว่าทำไมบุคลิกเหล่านี้สามารถพบได้ในนักการเมือง โค้ช และครูผู้สอนที่มีชื่อเสียงหลายคน ความหลงใหลและความสามารถพิเศษของพวกเขาช่วยให้พวกเขาสร้างแรงบันดาลใจให้ผู้อื่นได้ ไม่ใช่แค่ในอาชีพการงานเท่านั้น แต่ในทุกด้านของชีวิต รวมถึงความสัมพันธ์ของพวกเขาด้วย ดังนั้น ผู้เป็นตัวเอกจะรู้สึกมีความสุขและสมหวังมากเมื่อพวกเขาได้ชี้นำเพื่อนและคนที่รักให้เติบโตเป็นตัวของตัวเองได้ดีที่สุด</p>
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>ยืนหยัดในสิ่งที่ถูกต้อง</h1>
+    
+        ผู้เป็นตัวเอกมักจะเป็นแกนนนำหรือเป็นปากเป็นเสียงให้กับคุณค่าที่พวกเขาเชื่อถือ ซึ่งรวมถึงความถูกต้องและความเห็นแก่ผู้อื่นด้วย เมื่อมีบางอย่างที่ทำให้พวกเขาเห็นว่าไม่ยุติธรรมหรือไม่ถูกต้อง พวกเขาจะไม่อยู่เงียบ ๆ แต่จะลุกขึ้นมายืนหยัดในสิ่งที่ถูกต้อง อย่างไรก็ตาม พวกเขาไม่ค่อยเป็นคนหุนหันพลันแล่นหรือเร่งรีบ และความอ่อนไหวและความเข้าใจอันลึกซึ้งที่มีนั้น ทำให้พวกเขาพูดในลักษณะที่โดนใจผู้อื่น</p>
+บุคลิกภาพประเภทนี้มีความสามารถที่ลึกลับในการรู้และเข้าใจแรงจูงใจและความเชื่อพื้นฐานของผู้คน จนบางครั้งพวกเขาอาจไม่เข้าใจด้วยซ้ำว่าพวกเขาเข้าใจความคิดและหัวใจของคนอื่นได้อย่างไร การเข้าใจที่ลึกซึ้งนี้สามารถทำให้ผู้เป็นตัวเอกเป็นผู้สื่อสารที่โน้มน้าวใจและสร้างแรงบันดาลใจได้อย่างไม่น่าเชื่อ</p>
+อาวุธลับของผู้เป็นตัวเอกคือเจตนาบริสุทธิ์ โดยทั่วไปแล้ว พวกเขามีแรงจูงใจจากความปรารถนาอย่างจริงใจที่จะทำสิ่งที่ถูกต้องมากกว่าความปรารถนาที่จะบงการหรือมีอำนาจเหนือผู้อื่น แม้ว่าพวกเขาจะไม่เห็นด้วยกับใครบางคน ผู้เป็นตัวเอกก็ยังมองหาจุดร่วม ผลที่ได้คือคนที่มีบุคลิกภาพแบบนี้สามารถสื่อสารได้อย่างฉะฉานและละเอียดอ่อนจนทำให้คนอื่นแทบจะเพิกเฉยต่อคำพูดของพวกเขาไม่ได้ โดยเฉพาะอย่างยิ่งเมื่อพวกเขาพูดเรื่องที่กลั่นออกมาจากใจจริง</p>
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ENFJ</h1>
+    
+        ครู / อาจารย์ / โค้ชชีวิต : ENFJ เป็นผู้นำที่เข้าใจคนอื่น พวกเขาช่วยให้ผู้คนเติบโตและสร้างแรงบันดาลใจ งานที่สอนหรือพัฒนาผู้อื่นเหมาะที่สุด</p>
+นักการทูต / ผู้ประสานงานองค์กร : พวกเขามีทักษะการสื่อสารและสร้างความสัมพันธ์ งานที่ต้องประสานงานและเจรจาต่าง ๆ เหมาะกับพวกเขามาก</p>
+ผู้จัดกิจกรรมสังคม / อาสาสมัคร : ENFJ ชอบสร้างผลกระทบเชิงบวกในสังคม งานที่เกี่ยวกับกิจกรรมเพื่อชุมชนทำให้พวกเขาได้ใช้พลังและจิตใจสร้างสรรค์เต็มที่</p>
+   
+</div>
+</div>
+
+
+</body>
+</html>

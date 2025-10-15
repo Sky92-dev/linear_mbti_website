@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #e3ae3a; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 50vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 60vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #e3ae3a; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+
+<div class="hero">
+    <div class="text">
+        <h1>ผู้ประกอบการ</h1>
+        <p1>บุคคลิกภาพแบบ ESTP<br>
+        ผู้ประกอบการมีความชำนาญ กระฉับกระเฉง และช่างสังเกต พวกเขามีความสุขกับการใช้ชีวิตแบบสุดโต่ง</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/estp.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>ผู้ประกอบการ</h1>
+        <hr class="divider">
+    
+        ผู้ประกอบการ (Entrepreneur) (ESTP) มักจะสร้างความแตกต่างให้กับสิ่งที่อยู่รอบตัวพวกเขาเสมอ วิธีที่ดีที่สุดในการมองหาพวกเขาในงานปาร์ตี้คือ การมองหาผู้คนที่เดินไปรอบ ๆ ขณะที่พวกเขาย้ายจากกลุ่มหนึ่งไปอีกกลุ่มหนึ่ง บุคลิกแบบผู้ประกอบการชอบที่จะเป็นศูนย์กลางของความสนใจ หัวเราะและสนุกสนานด้วยอารมณ์ขันที่ตรงไปตรงมาและเปิดเผย หากมีการขอให้ผู้ชมขึ้นมาบนเวที ผู้ประกอบการจะเป็นคนอาสาหรืออาสาส่งเพื่อนขี้อายขึ้นไป</p>
+ทฤษฎี แนวคิดเชิงนามธรรม และการพูดคุยอย่างกระตือรือร้นเกี่ยวกับประเด็นระดับโลกและผลกระทบของสิ่งเหล่านี้ไม่ได้ทำให้ผู้ประกอบการสนใจเป็นเวลานานนัก ผู้ประกอบการชอบทำให้การสนทนาเป็นไปอย่างมีพลังและมีความฉลาดพอสมควร พวกเขาชอบพูดคุยเกี่ยวกับสิ่งที่เป็นอยู่ หรือดีกว่านั้นคือ การได้ออกไปและลงมือทำ ผู้ประกอบการชอบกระโดดก่อนที่จะตรวจตราบริเวณโดยรอบ หรืออีกนัยหนึ่งคือ ชอบเสี่ยงก่อนที่จะพิจารณาให้รอบด้าน พวกเขาแก้ไขข้อผิดพลาดของตนไปพร้อมกับขณะที่ดำเนินการ แทนที่จะนั่งเฉย ๆ เตรียมสำหรับเหตุฉุกเฉินและหลบหนีข้อกำหนดใด ๆ</p>
+
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>เริ่มทำสิ่งต่าง ๆ ด้วยความกระตือรือร้น</h1>
+    
+        ผู้ประกอบการเป็นประเภทบุคลิกภาพที่มีแนวโน้มจะทำพฤติกรรมเสี่ยงมากที่สุด พวกเขาอยู่กับปัจจุบันและเริ่มทำสิ่งต่าง ๆ ด้วยความกระตือรือร้น พวกเขาคือดวงตาแห่งพายุที่เข้าไปทำอะไรที่ยาก ๆ ที่คนอื่นไม่อยากทำ คนที่มีบุคลิกแบบผู้ประกอบการจะชอบเรื่องดราม่า ความหลงใหล และความสนุกสนานพึงพอใจ ไม่ใช่เพื่อความตื่นเต้นทางอารมณ์ แต่เป็นเพราะมันกระตุ้นความคิดเชิงตรรกะของพวกเขา พวกเขาถูกบังคับให้ตัดสินใจอย่างมีวิจารณญาณโดยอิงจากข้อเท็จจริงและความเป็นจริงที่เห็น ซึ่งการตัดสินใจนี้เกิดขึ้นอย่างมีเหตุผลและรวดเร็วในกระบวนการตอบสนองการกระตุ้นที่เกิดขึ้น</p>
+สิ่งนี้ทำให้โรงเรียนและสภาพแวดล้อมที่มีการจัดระเบียบสูงอื่น ๆ กลายเป็นความท้าทายสำหรับผู้ประกอบการ แน่นอนว่าไม่ใช่เพราะพวกเขาไม่ฉลาด จริง ๆ แล้วพวกเขาสามารถทำได้ดีในการเรียนรู้ แต่แนวทางการศึกษาอย่างเป็นทางการที่เน้นการบรรยายนั้น ยังห่างไกลจากการเรียนรู้ด้วยการลงมือปฏิบัติจริงที่ผู้ประกอบการชื่นชอบ พวกเขาจำเป็นต้องใช้วุฒิภาวะอย่างมากในการมองว่ากระบวนการนี้เป็นวิธีที่จำเป็นในการบรรลุการเรียนรู้และสร้างโอกาสที่น่าตื่นเต้นได้มากขึ้น</p>
+ความท้าทายอีกอย่างหนึ่งก็คือ สำหรับผู้ประกอบการแล้ว การยึดหลักศีลธรรมของตนเองนั้นสมเหตุสมผลมากกว่าการใช้หรือยึดหลักของคนอื่น กฎเกณฑ์มีไว้ให้แหก ซึ่งนี่ไม่ใช่คุณลักษณะแบบอาจารย์สอนตามโรงเรียนหรือหัวหน้างานในองค์กร และการชอบแหกกฎนี้ทำให้พวกเขามีชื่อเสียบางประการได้ แต่หากพวกเขาลดการสร้างปัญหาให้น้อยลง ควบคุมพลังงานของตนได้มากขึ้น และมุ่งความสนใจไปที่สิ่งที่น่าเบื่อกว่าเล็กน้อย ผู้ประกอบการก็เป็นขุมพลังที่หลายองค์กรต้องคำนึงถึง</p>
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ESTP</h1>
+    
+       นักขาย / ผู้ประกอบการ : ESTP ชอบทำงานแบบเร็วและตัดสินใจทันที งานที่ต้องใช้ความกล้าหาญและไหวพริบเหมาะที่สุด</p>
+นักกีฬา / ผู้จัดกิจกรรม : พวกเขาชอบความท้าทายและความตื่นเต้น งานที่มีการเคลื่อนไหวและความเร้าใจเหมาะมาก</p>
+นักการตลาด / นักประชาสัมพันธ์ : ESTP สามารถโน้มน้าวคนอื่นและใช้ความคิดสร้างสรรค์ได้ดี งานที่ต้องใช้ทักษะสื่อสารเหมาะกับพวกเขามาก</p>
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #4297b4; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 60vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 15vh;           /* เต็มความสูงหน้าจอ */
+    padding: 30px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #4297b4; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+
+
+<div class="hero">
+    <div class="text">
+        <h1>นักคำนวณ</h1>
+        <p1>บุคคลิกภาพแบบ ISTJ<br>
+        นักคำนวณเป็นนักปฏิบัติและเป็นคนชอบเสาะหาข้อเท็จจริง ผู้ซึ่งความน่าเชื่อถือไม่อาจถูกตั้งข้อสงสัย</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/isfj.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>ผู้พิทักษ์</h1>
+        <hr class="divider">
+    
+        ผู้พิทักษ์หรือ Defender (ISFJ) ช่วยทำให้โลกหมุนไปด้วยความถ่อมตัว การไม่พูดเกินจริง การทำงานหนัก และการทุ่มเทตนเอง คนที่มีบุคลิกภาพประเภทนี้จะรู้สึกรับผิดชอบต่อคนรอบข้างอย่างลึกซึ้ง ผู้พิทักษ์มีความรับผิดชอบต่อกรอบเวลา จดจำวันเกิดและโอกาสพิเศษ ยึดปฏิบัติตามธรรมเนียมประเพณี แสดงท่าทางห่วงใยและสนับสนุนคนที่ตนรัก แต่พวกเขาไม่ค่อยเรียกร้องการยอมรับในทุกสิ่งที่พวกเขาทำ และเลือกที่จะทำงานเบื้องหลังแทน</p>
+นี่เป็นบุคลิกภาพประเภทที่มีความสามารถและทำได้หลายอย่าง พวกเขามาพร้อมพรสวรรค์มากมาย แม้ว่าจะมีความละเอียดอ่อนและเอาใจใส่ แต่ผู้พิทักษ์ก็มีความสามารถในการวิเคราะห์ที่ยอดเยี่ยมและใส่ใจในรายละเอียด และถึงแม้จะเป็นคนที่ค่อนข้างสงวนท่าที แต่พวกเขาก็มักจะมีทักษะเกี่ยวกับคนที่พัฒนามาอย่างดีและมีความสัมพันธ์ทางสังคมที่แข็งแกร่ง ผู้พิทักษ์เป็นมากกว่าการผสานรวมส่วนต่าง ๆ ไว้ด้วยกัน และความแข็งแกร่งที่มีหลากหลายของพวกเขาก็เปล่งประกายแม้ในแง่มุมที่ธรรมดาที่สุดในชีวิตประจำวันของพวกเขา</p>
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>พรสวรรค์แห่งความภักดี</h1>
+        ลักษณะที่โดดเด่นที่สุดของผู้พิทักษ์คือความภักดี ผู้พิทักษ์จะไม่ค่อยปล่อยให้มิตรภาพหรือความสัมพันธ์จางหายไปเพราะขาดความพยายาม แต่พวกเขากลับทุ่มเทแรงกายแรงใจไปกับการรักษาสายสัมพันธ์อันแน่นแฟ้นกับคนที่ตนรัก ไม่ใช่แค่การส่งข้อความว่า “สบายดีไหม?” แล้วจบ คนที่มีบุคลิกภาพแบบนี้มักจะยอมทิ้งทุกอย่างและคอยช่วยเหลือทุกครั้งที่เพื่อนหรือสมาชิกในครอบครัวกำลังเผชิญกับช่วงเวลาที่ยากลำบาก</p>
+ความรู้สึกภักดีของผู้พิทักษ์ไม่ได้หยุดอยู่กับแค่คนใกล้ตัวและคนที่รักที่สุดเท่านั้น แต่มักจะมอบให้กับชุมชน นายจ้าง และแม้แต่ประเพณีของครอบครัวด้วย แต่ความมุ่งมั่นอย่างแรงกล้าและความปรารถนาที่จะรับใช้อาจนำมาซึ่งข้อเสียได้ เพราะคนอื่นอาจหาประโยชน์จากความขยันขันแข็งและการช่วยเหลือของผู้พิทักษ์ ทำให้พวกเขารู้สึกเหนื่อยหน่ายหมดไฟและทำงานหนักเกินไป และผู้พิทักษ์อาจรู้สึกผิดหรือเครียดเมื่อพวกเขานึกย้อนไปถึงการเปลี่ยนแปลงทั้งต่อตนเอง ความสัมพันธ์ หรือวิธีที่พวกเขาทำสิ่งต่าง ๆ ในอดีต แม้กระทั่งการเปลี่ยนแปลงที่จำเป็นก็ตาม</p>
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ISFJ</h1> 
+พยาบาล / เจ้าหน้าที่สังคมสงเคราะห์ : ISFJ ใส่ใจและคอยช่วยเหลือผู้อื่น งานที่ให้พวกเขาดูแลและสนับสนุนคนอื่นเหมาะมากสำหรับพวกเขา</p>
+ครู / ผู้สอน : พวกเขาสามารถให้ความเอาใจใส่แก่นักเรียนและสนับสนุนให้เติบโต งานด้านการศึกษาเหมาะที่สุด</p>
+ผู้ดูแลลูกค้า / เจ้าหน้าที่บริการ : ISFJ เข้าใจความต้องการของผู้อื่น งานที่ต้องบริการและช่วยเหลือผู้คนเหมาะกับพวกเขามาก</p>
+</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ตัวอย่าง Hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  
+body {
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+    background: #ffffff;
+    
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 400px;
+    color: rgb(0, 0, 0);
+}
+
+.hero .text {
+    max-width: 50%; /* กำหนดพื้นที่ข้อความ */
+    font-weight: 200;
+}
+
+.hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+.hero p1 {
+    font-weight: 300;
+}
+
+.hero .image {
+    max-width: 70%; /* กำหนดพื้นที่ภาพ */
+}
+
+.hero .image img {
+    width: 100%;
+    height: auto;
+}
+.green {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #88619a; /* สีพื้นหลัง */
+    padding: 40px;
+    height: 5px;
+    color: rgb(255, 255, 255);
+}
+.container {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 30vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container2 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 65vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container3 {
+    display: flex;
+    justify-content: center; /* กึ่งกลางแนวนอนของ block */
+    align-items: center;     /* กึ่งกลางแนวตั้ง */
+    height: 35vh;           /* เต็มความสูงหน้าจอ */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.text2 {
+    max-width: 800px;        /* กำหนดความกว้างไม่ให้ยาวเกินไป */
+    text-align: left; 
+    font-weight: 200;
+}
+h1 {
+  font-weight: 400;
+}
+.image2 {
+  display: flex;          /* ต้องมี flex ก่อน */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  height: 100vh;           /* เต็มความสูงหน้าจอ */
+}
+
+  .divider {
+      border: none;
+      height: 1px;
+      background-color: #e0e0e0;
+      opacity: 0.6;
+      margin: 20px 0;
+    }
+.career {
+    display: flex;
+    justify-content: space-between; /* ข้อความซ้าย ภาพขวา */
+    align-items: center;
+    background-color: #f0f8f5; /* สีพื้นหลังอ่อน */
+    padding: 40px;
+    height: auto;
+    border-radius: 15px;
+    margin: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.career .text {
+    max-width: 50%;
+}
+
+.career h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    color: #2a7a60;
+}
+
+.career p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+.career .image {
+    max-width: 40%;
+}
+
+.career .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* อาชีพที่แนะนำ */
+.careers {
+    margin-top: 20px;
+    background-color: #dff5ec;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.careers h2 {
+    margin-top: 0;
+    color: #2a7a60;
+}
+
+.careers ul {
+    margin: 0;
+    padding-left: 20px;
+}
+</style>
+</head>
+<body>
+
+  
+<div class="green" style="position: relative;">
+    <!-- ปุ่มอยู่ซ้ายบน -->
+    <form id="cosineForm" action="/cosine_summary" method="post" 
+          style="position: absolute; top: 20px; left: 20px; margin: 0;">
+        <input type="hidden" name="cosine_dict" value='{{ cosine_dict | tojson }}'>
+        <button type="submit" 
+            style="background-color: #ffffff; color: #88619a; border: none; 
+                   padding: 10px 20px; border-radius: 8px; cursor: pointer; 
+                   font-family: 'Kanit', sans-serif; font-weight: 400; 
+                   box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: 0.2s;">
+            ⬅ ดูสรุป Cosine
+        </button>
+    </form>
+
+    <!-- ข้อความ -->
+    <div class="text" style="width: 100%; text-align: center;">
+        <h1>ประเภทบุคลิกภาพของคุณ {{user_name}}</h1>
+    </div>
+</div>
+
+
+<div class="hero">
+    <div class="text">
+        <h1>นักโต้วาที</h1>
+        <p1>บุคคลิกภาพแบบ ENTP<br>
+        นักโต้วาทีเป็นคนช่างสงสัยและเป็นนักคิดที่ยืดหยุ่น เป็นผู้ที่อดใจที่จะท้าทายด้านสติปัญญาไม่ได้</p>
+    </div>
+    <div class="image">
+        <img src="https://www.16personalities.com/static/images/social/entp.png?v=3" alt="INFJ Image">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text2">
+        <h1>นักโต้วาทีะ</h1>
+        <hr class="divider">
+    
+       นักโต้วาที (Debater) (ENTP) เป็นคนที่มีไหวพริบและกล้าหาญ ไม่กลัวที่จะไม่เห็นด้วยกับสภาพปัจจุบันที่เป็นอยู่ ในความเป็นจริงพวกเขาไม่กลัวที่จะไม่เห็นด้วยกับสิ่งใดหรือใครก็ตาม คนที่มีบุคลิกลักษณะนี้จะเฉิดฉายได้มากเมื่ออยู่ในการโต้เถียงกันด้วยวาจา และหากบทสนทนาเปลี่ยนไปเป็นประเด็นที่ขัดแย้ง ก็จะยิ่งดีเข้าไปใหญ่</p>
+       มันคงเป็นเรื่องผิดที่จะคิดว่านักโต้วาทีเป็นคนที่ไม่เห็นด้วยกับสิ่งใดเลยหรือเป็นคนใจร้าย คนที่มีบุคลิกภาพประเภทนี้จะมีความรู้และอยากรู้อยากเห็น มีอารมณ์ขันขี้เล่น และพวกเขาก็สามารถสร้างความสนุกสนานได้อย่างไม่น่าเชื่อ พวกเขามีแนวคิดเรื่องความสนุกที่ผิดแผกและแตกต่างไปจากคนประเภทอื่น ซึ่งหนึ่งในนั้นคือการโต้วาทีที่มีสีสันและมีชีวิตชีวา</p>
+
+</div>
+</div>
+<div class="container2">
+    <div class="text2">
+        <h1>แหกกฎ</h1>
+    
+       นักโต้วาทีขึ้นชื่อเรื่องแนวทางการเป็นกบฏหรือการแหกกฎ สำหรับบุคลิกภาพประเภทนี้ ไม่เชื่อใดว่าจะมีสิ่งใดที่ศักดิ์สิทธิ์เกินกว่าจะถูกตั้งคำถามได้ ไม่มีแนวคิดใดที่เป็นพื้นฐานเกินกว่าจะพินิจพิเคราะห์เพื่อตรวจสอบ และไม่มีกฎเกณฑ์ใดสำคัญเกินกว่าจะแหกกฎได้ หรืออย่างน้อยก็ต้องผ่านการทดสอบอย่างละเอียดถี่ถ้วนก่อน บางครั้งนักโต้วาทีอาจกบฏต่อความเชื่อของตนเองโดยโต้แย้งมุมมองของฝ่ายตรงข้าม เพียงเพื่อให้เห็นว่าการมองโลกจากอีกด้านหนึ่งนั้นเป็นอย่างไร</p>
+นักโต้วาทีจะมองว่าคนส่วนใหญ่ยอมทำตามที่คนอื่นบอกให้ทำง่ายเกินไป และยอมตามอย่างไม่ลืมหูลืมตา ทั้งบรรทัดฐานทางสังคม แรงกดดัน และมาตรฐานทางสังคมต่าง ๆ นักโต้วาทีชอบฝึกการตั้งคำถามกับรูปแบบความคิดที่นิยมกันแพร่หลาย และพวกเขามีความสุขที่ได้ค้นพบคุณค่าของผู้ด้อยโอกาสในสังคม ผู้ที่อยู่ในฐานะเสียเปรียบ และคนที่คิดนอกกรอบ จิตใจที่แอคทีฟของพวกเขาอดไม่ได้ที่จะคิดใหม่ถึงสิ่งที่คนอื่นมองข้ามและผลักดันสิ่งเหล่านั้นไปในทิศทางใหม่ที่ชาญฉลาดกว่า</p>
+ในขณะที่บุคลิกของนักโต้วาทีชอบระดมความคิดและคิดการใหญ่ พวกเขามักจะหลีกเลี่ยงการจมปลักอยู่กับ "งานหนักที่น่าเบื่อ" และไม่สามารถนำความคิดของตนไปใช้ได้ แม้ว่านี่จะฟังดูสมเหตุสมผลในระดับหนึ่ง แต่นักโต้วาทีมีความคิดและข้อเสนอแนะมากมายเกินกว่าจะทำตามได้ทั้งหมด แต่ถ้านักโต้วาทีไม่พยายามพัฒนาตนเองในการระบุและทำตามลำดับความสำคัญจริง ๆ พวกเขาอาจมีปัญหาในการใช้ศักยภาพสูงสุดของตนได้</p>
+
+</div>
+</div>
+<div class="container3">
+    <div class="text2">
+        <h1>อาชีพที่เหมาะกับ ENTP</h1>
+    
+        ผู้ประกอบการ / นักนวัตกรรม:ENTP ชอบคิดไอเดียใหม่ ๆ และทดลองแนวทางต่าง ๆ พวกเขามีความคิดสร้างสรรค์และชอบความท้าทาย งานที่ให้พวกเขาสร้างสรรค์โครงการหรือทดลองแนวคิดเหมาะกับพวกเขามาก</p>
+นักการตลาด / นักโฆษณา : พวกเขาสามารถสร้างแนวคิดใหม่ ๆ เพื่อดึงดูดคนอื่นและโน้มน้าวผู้อื่นได้ดี งานที่ต้องใช้ความคิดสร้างสรรค์และไหวพริบเหมาะที่สุด</p>
+นักพูด / ผู้เชี่ยวชาญด้านประชาสัมพันธ์ : ENTP มีทักษะการสื่อสารดีเยี่ยม งานที่ให้พวกเขาโน้มน้าวหรือสร้างแรงบันดาลใจต่อผู้คนเหมาะมาก</p>
+</div>
+</div>
+
+
+</body>
+</html>
