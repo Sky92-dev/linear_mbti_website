@@ -360,7 +360,12 @@ TEMPLATE = '''
 def cosine_summary():
     data = request.form.get('cosine_dict', '{}')
     cosine_dict = json.loads(data)
-    return render_template('cosine_summary.html', cosine_dict=cosine_dict)
+
+    # ✅ เรียงจากค่ามากไปน้อย
+    cosine_sorted = dict(sorted(cosine_dict.items(), key=lambda x: x[1], reverse=True))
+
+    return render_template('cosine_summary.html', cosine_dict=cosine_sorted)
+
 
 @app.route('/', methods=['GET'])
 def index():
